@@ -26,8 +26,10 @@ post_install_actions:
   - cp core-dev/gitignore ../.gitignore
   - mkdir -p ../test_output
   - chmod +w ../test_output
-  - ddev exec corepack enable
-  - cd ../core && ddev exec yarn set version stable
+  - ddev exec corepack enable # @todo remove when in DDEV core.
+  - ddev exec yarn set version stable
+  - ddev exec rm sites/default/files
+  - cd ../core && ddev yarn
 
 removal_actions:
   - rm core/phpunit.xml

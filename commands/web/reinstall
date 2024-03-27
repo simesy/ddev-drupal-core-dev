@@ -1,0 +1,6 @@
+#!/bin/bash
+
+ddev exec chmod 775 sites/default sites/default/settings.php
+ddev exec rm -Rf sites/default/files
+ddev exec rm sites/default/settings.php
+ddev drupal install

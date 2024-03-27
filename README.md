@@ -18,11 +18,8 @@ ddev drupal list
 # Install drupal
 ddev drupal install
 
-# Run PHPUnit tests
-ddev phpunit core/modules/sdc
-
-# Run Nightwatch tests (currently only runs on Chrome)
-ddev nightwatch --tag core
+# Verify some sample tests that require a working site
+ddev phpunit core/tests/Drupal/FunctionalTests/Core
 ```
 
 ## Nightwatch Examples
