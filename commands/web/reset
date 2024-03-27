@@ -7,6 +7,6 @@
 ## Usage: reset
 ## Example: "ddev reset"
 
-ddev exec chmod 775 sites/default sites/default/settings.php
-ddev exec rm -rf sites/default/files
-ddev exec rm -f sites/default/settings.php
+chmod 775 sites/default sites/default/settings.php
+rm -rf sites/default/files
+rm -f sites/default/settings.php
