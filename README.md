@@ -16,7 +16,7 @@ ddev composer install
 ddev drupal list
 
 # Install drupal
-ddev drupal install
+ddev reset && ddev drupal install
 
 # Verify some sample tests that require a working site
 ddev phpunit core/tests/Drupal/FunctionalTests/Core
