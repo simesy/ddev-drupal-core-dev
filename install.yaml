@@ -28,7 +28,6 @@ post_install_actions:
   - chmod +w ../test_output
   - ddev exec corepack enable # @todo remove when in DDEV core.
   - ddev exec yarn set version stable
-  - ddev exec rm sites/default/files
   - cd ../core && ddev yarn
 
 removal_actions:
