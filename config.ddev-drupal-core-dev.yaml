@@ -1,0 +1,6 @@
+# #ddev-generated
+# This file is placed by the justafish/ddev-drupal-core-dev addon.
+
+php_version: "8.3"
+upload_dirs:
+    - .ddev/tmp
