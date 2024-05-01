@@ -14,13 +14,12 @@
  */
 
 use Drupal\Core\Command\GenerateTheme;
-use Drupal\Core\Command\InstallCommand;
 use Symfony\Component\Console\Application;
-use DrupalCoreDev\Command\CacheCommand;
 use DrupalCoreDev\Command\AdminLoginCommand;
+use DrupalCoreDev\Command\CacheCommand;
+use DrupalCoreDev\Command\InstallCommand;
 use DrupalCoreDev\Command\TestCommand;
 use DrupalCoreDev\Command\TestBrowserCommand;
-use DrupalCoreDev\Command\UninstallCommand;
 
 if (PHP_SAPI !== 'cli') {
     return;
@@ -38,6 +37,5 @@ $application->add(new CacheCommand($loader));
 $application->add(new AdminLoginCommand($loader));
 $application->add(new TestCommand());
 $application->add(new TestBrowserCommand());
-$application->add(new UninstallCommand());
 
 $application->run();
