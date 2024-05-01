@@ -12,21 +12,27 @@ Ping @sime in #ddev-for-core-dev on [Drupal Slack](https://www.drupal.org/commun
 ## Setting up
 
 ```
+# Clone Drupal core codebase here and install dependencies with composer.
 git clone https://git.drupalcode.org/project/drupal.git drupal
 cd drupal
+ddev composer install
+
+# Configure and start a minimal DDEV project.
 ddev config --omit-containers=db --disable-settings-management
 ddev start
+
+# Get the latest release of this plugin.
 ddev get simesy/ddev-drupal-core-dev
 ddev restart
-ddev composer install
 ```
 
-## Checking the basic workflow
+## Installing and Testing
 
 ```
+# See the available plug commands.
 ddev drupal list
 
-# Install drupal
+# Install or re-install Drupal.
 ddev drupal install minimal
 
 # Run PHPUnit tests
