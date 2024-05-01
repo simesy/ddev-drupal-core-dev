@@ -1,4 +1,4 @@
-# DDEV Drupal Core Development plugin
+# Drupal Core Dev (DDEV plugin)
 
 ## Context of the fork
 
