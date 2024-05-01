@@ -6,7 +6,6 @@ project_files:
   - config.ddev-drupal-core-dev.yaml
   - web-build/Dockerfile.ddev-drupal-core-dev
   - docker-compose.core-dev-selenium.yaml
-  - core-dev/phpunit-firefox.xml
   - core-dev/phpunit-chrome.xml
   - commands/web/drupal
   - commands/web/phpunit
