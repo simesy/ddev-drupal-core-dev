@@ -26,6 +26,7 @@ cd drupal
 
 # Configure and start a minimal DDEV project.
 # This creates a .ddev folder and DDEV manages its own .gitingore
+# Using SQLite, so skip mysql container with --omit-containers=db
 ddev config --omit-containers=db --disable-settings-management
 ddev start
 
