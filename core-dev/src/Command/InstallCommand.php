@@ -6,6 +6,7 @@ namespace DrupalCoreDev\Command;
 use Drupal\Core\Command\InstallCommand as CoreInstallCommand;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
+use Symfony\Component\Filesystem\Exception\IOException;
 use Symfony\Component\Filesystem\Filesystem;
 
 /**
@@ -18,19 +19,20 @@ class InstallCommand extends CoreInstallCommand {
    */
   function execute(InputInterface $input, OutputInterface $output): int {
     $filesystem = new Filesystem();
+    $settings = __DIR__ . '/../../../../sites/default';
+    $filesystem->chmod($settings, 0775, 0000, false);
     try {
-      $settings = __DIR__ . '/../../../../sites/default/settings.php';
-      $files = __DIR__ . '/../../../../sites/default/files';
-      $filesystem->chmod($files . '/../', 0755);
-      $filesystem->chmod($settings, 0777, 0000, true);
-      $filesystem->remove($settings);
-      $filesystem->chmod($files, 0777, 0000, true);
-      $filesystem->remove($files);
+      $filesystem->remove($settings . '/settings.php');
+      $filesystem->remove($settings . '/files');
       $output->writeln('Removed a previous installation.');
     }
-    catch (\Exception $e) {
+    catch (IOException $e) {
       // This would fail if there was no previous installation, naively proceed to install Drupal.
     }
-    return parent::execute($input, $output);
+
+    $return = parent::execute($input, $output);
+    $filesystem->chmod($settings, 0777, 0000, false);
+    return $return;
   }
+
 }
